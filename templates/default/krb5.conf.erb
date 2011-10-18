@@ -1,0 +1,13 @@
+[libdefaults]
+	default_realm = <%= node[:kerberos][:default_realm] %>
+
+[realms]
+	<% node[:kerberos][:realms].each do |r, c| -%>
+	<%= r %> = {
+	      	<% c.each do |opt, val| -%>
+		<% val.each do |i| -%>
+		<%= opt -%> = <%= i %>
+		<% end -%>
+		<% end -%>
+	}
+	<% end -%>
