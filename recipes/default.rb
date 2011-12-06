@@ -12,4 +12,8 @@ package "libpam-krb5" do
   response_file "libpam-krb5.seed"
 end
 
+execute "no krb in pam by default"
+  command "pam-auth-update --remove krb5"
+end
+
 k5login node[:kerberos][:machine_admins]
