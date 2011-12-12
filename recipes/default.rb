@@ -12,7 +12,7 @@ package "libpam-krb5" do
   response_file "libpam-krb5.seed"
 end
 
-execute "no krb in pam by default"
+execute "no krb in pam by default" do
   command "pam-auth-update --remove krb5"
 end
 
