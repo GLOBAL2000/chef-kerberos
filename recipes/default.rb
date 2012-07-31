@@ -12,8 +12,17 @@ package "libpam-krb5" do
   response_file "libpam-krb5.seed"
 end
 
-execute "no krb in pam by default" do
-  command "pam-auth-update --remove krb5"
+# Since this is a potential security risk do not install by default
+# and ensure it is purged if not wanted
+if node["kerberos"]["pam"]
+    execute "activate krb pam" do
+      command "pam-auth-update --package"
+    end
+else
+    execute "deactivate krb in pam" do
+      command "pam-auth-update --remove krb5"
+    end
 end
 
 k5login node[:kerberos][:machine_admins]
+
