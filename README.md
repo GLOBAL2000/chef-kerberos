@@ -18,6 +18,8 @@ default_attributes "kerberos" => {
             "admin_server" => ["kerberos2.myrealm2.com"]
         }
     },
-    "default_realm" => "MYREALM.COM"
+    "default_realm" => "MYREALM.COM",
+    "pam" => true,
+    "machine_admins" => ["jimdoe/admin"]
 }
 ```
