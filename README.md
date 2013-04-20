@@ -1,7 +1,7 @@
 Simple kerberos chef recipe
 ===========================
 
-This will be extended over time to support more options and a kerberos server.
+This will be extended over time to support more options.
 
 Usage example (client)
 ----------------------
@@ -21,5 +21,15 @@ default_attributes "kerberos" => {
     "default_realm" => "MYREALM.COM",
     "pam" => true,
     "machine_admins" => ["jimdoe/admin"]
+}
+```
+
+Usage example (server)
+----------------------
+
+```ruby
+default_attributes "kerberos" => {
+    "default_realm" => "MYREALM.COM",
+    "kerberos_admins" => ["janedoe/admin", "johndoe/admin"],
 }
 ```
