@@ -24,6 +24,11 @@ default_attributes "kerberos" => {
 }
 ```
 
+This configures the client to authenticate against
+`kerberos1.myrealm.com` and `kerberos2.myrealm.com`. It also enables
+PAM authentication against Kerberos and lets `jimdoe/admin` login as
+`root` on the client.
+
 Usage example (server)
 ----------------------
 
@@ -33,3 +38,10 @@ default_attributes "kerberos" => {
     "kerberos_admins" => ["janedoe/admin", "johndoe/admin"],
 }
 ```
+
+This configures the server as a Kerberos admin server and KDC and
+gives administrative privileges to `janedoe/admin` and
+`johndoe/admin`.
+
+Note that you still have to create a new Kerberos realm by
+running `krb5_newrealm` after running the server recipe.
