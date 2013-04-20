@@ -45,3 +45,10 @@ gives administrative privileges to `janedoe/admin` and
 
 Note that you still have to create a new Kerberos realm by
 running `krb5_newrealm` after running the server recipe.
+
+Troubleshooting
+---------------
+
+If you have any problems with Kerberos, please always make sure to
+double-check your DNS and rDNS resolution and your current hostname
+(`hostname -f`).
