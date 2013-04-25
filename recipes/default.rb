@@ -8,6 +8,6 @@ template "/etc/krb5.conf" do
   only_if { !node[:kerberos][:default_realm].empty? }
 end
 
-package "libpam-krb5" if node ["kerberos"]["pam"]
+package "libpam-krb5" if node["kerberos"]["pam"]
 
 k5login node[:kerberos][:machine_admins]
